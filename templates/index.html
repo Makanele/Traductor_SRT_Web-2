@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor SRT a Español</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-bubbles">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Traductor SRT</h1>
+            <p>Traduce tus subtítulos al español fácilmente manteniendo la sincronización</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept=".srt" hidden multiple>
+                <div class="upload-content">
+                    <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <p class="upload-text">Haz clic o arrastra tus archivos .srt aquí</p>
+                </div>
+            </div>
+
+            <div class="file-list-container" id="fileListContainer" style="display: none;">
+                <ul class="file-list" id="fileList">
+                    <!-- Los archivos seleccionados irán aquí -->
+                </ul>
+                <button id="translateBtn" class="btn-translate">Traducir Archivos</button>
+            </div>
+
+            <div class="status-container" id="statusContainer" style="display: none;">
+                <div class="spinner"></div>
+                <p id="statusText">Traduciendo archivo...</p>
+                <p class="status-subtext">Esto puede tardar dependiendo del tamaño del archivo. Por favor, no cierres la ventana.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
